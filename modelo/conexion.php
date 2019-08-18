@@ -1,14 +1,14 @@
 <?php namespace modelo;
 // 14.- PHP Orientado a Objetos - Creación de nuestros modelos
-use mysqli;
+// use mysqli;
 
 class conexion
 {
 //   Atributos
     private $datos = array(
         'host' => 'localhost',
-        'user' => 'jmayora',
-        'pass' => 'cda25-cd',
+        'user' => 'root',
+        'pass' => 'cltch2984',
         'db' => 'proyecto',
     );
 
@@ -25,6 +25,8 @@ class conexion
             $this->datos['pass'],
             $this->datos['db']
         );
+
+        // var_dump($this->conexion); exit();
     }
 
     public function consultaSimple($sql)
