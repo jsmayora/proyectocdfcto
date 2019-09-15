@@ -37,7 +37,7 @@ class estudiante
     public function listar()
     {
         $sql = "SELECT t1.*, t2.nombre as nombre_seccion FROM estudiantes
-                t1 INNER JOIN secciones t2 on t1.id_seccion = t2.id";
+        t1 INNER JOIN secciones t2 on t1.id_seccion = t2.id";
 
         $datos = $this->objConexion->consultaSimple($sql);
 
@@ -47,7 +47,7 @@ class estudiante
     public function add()
     {
         $sql = "INSERT INTO  estudiantes (id,nombre,edad,promedio,imagen, id_seccion,fecha)
-                VALUES (null,'{$this->nombre}','{$this->edad}','{$this->promedio}',
+        VALUES (null,'{$this->nombre}','{$this->edad}','{$this->promedio}',
         '{$this->imagen}','{$this->id_seccion}', NOW())";
         $this->objConexion->consultaSimple($sql);
     }
@@ -62,22 +62,22 @@ class estudiante
     public function edit()
     {
         $sql = "UPDATE estudiantes SET nombre='{$this->nombre}', edad='{$this->edad}',
-                         promedio='{$this->promedio}', id_seccion='{$this->id_seccion}'
-                WHERE id='{$this->id}'";
+        promedio='{$this->promedio}', id_seccion='{$this->id_seccion}'
+        WHERE id='{$this->id}'";
         $this->objConexion->consultaSimple($sql);
     }
     public function view()
     {
         $sql = "SELECT t1.*,t2.nombre as nombre_seccion FROM estudiantes
-                    t1 INNER JOIN  secciones t2 ON t1.id_seccion = t2.id
-                 WHERE t1.id='{$this->id}'";
+        t1 INNER JOIN  secciones t2 ON t1.id_seccion = t2.id
+        WHERE t1.id='{$this->id}'";
         $datos = $this->objConexion->consultaRetorno($sql);
         $fila= \mysqli_fetch_assoc($datos);
         return $fila;
     }
 
      // Metodo para probar si funciona el namespace
-      public function  hola(){
+    public function  hola(){
         echo "Hola";
 
     }
